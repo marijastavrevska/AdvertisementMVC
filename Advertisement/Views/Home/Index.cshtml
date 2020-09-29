@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!--===============================
+  =            Hero Area            =
+  ================================-->
+
+<section class="hero-area bg-1 text-center overly">
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Header Contetnt -->
+                <div class="content-block">
+                    <h1>Find and List Near You </h1>
+                    <p>Online platform for advertising  <br> apartments and offices </p>
+                    <div class="short-popular-category-list text-center">
+                        <h2>Popular Category</h2>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href=""><i class="fa fa-briefcase"></i> Office</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href=""><i class="fa fa-building"></i> Apartment</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href=""><i class="fa fa-bullhorn"></i> Warehouse</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="popular-deals section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Trending Advertisements</h2>
+                    <p>Find the best property for you!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- offer 01 -->
+            <div class="col-sm-12 col-lg-4">
+                <!-- product card -->
+                <div class="product-item bg-light">
+                    <div class="card">
+                        <div class="thumb-content">
+                            <!-- <div class="price">$200</div> -->
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="@ViewBag.ad1.ImgUrl" style="width:350px; height:245px;" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="/Ads/Details/13">@ViewBag.ad1.Name</a></h4>
+                            <ul class="list-inline product-meta">
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-folder-open-o"></i>Office</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-calendar"></i>@ViewBag.ad1.Date</a>
+                                </li>
+                            </ul>
+                            <p class="card-text">@ViewBag.ad1.Description</p>
+                            <div class="product-ratings">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-12 col-lg-4">
+                <!-- product card -->
+                <div class="product-item bg-light">
+                    <div class="card">
+                        <div class="thumb-content">
+                            <!-- <div class="price">$200</div> -->
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="@ViewBag.ad2.ImgUrl"  style="width:350px; height:245px;" alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="/Ads/Details/14">@ViewBag.ad2.Name</a></h4>
+                            <ul class="list-inline product-meta">
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-folder-open-o"></i>Office</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-calendar"></i>@ViewBag.ad2.Date</a>
+                                </li>
+                            </ul>
+                            <p class="card-text">@ViewBag.ad2.Description</p>
+                            <div class="product-ratings">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-sm-12 col-lg-4">
+                <!-- product card -->
+                <div class="product-item bg-light">
+                    <div class="card">
+                        <div class="thumb-content">
+                            <!-- <div class="price">$200</div> -->
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="@ViewBag.ad3.ImgUrl"  style="width:350px; height:245px;"  alt="Card image cap">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title"><a href="/Ads/Details/22">@ViewBag.ad3.Name</a></h4>
+                            <ul class="list-inline product-meta">
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-folder-open-o">Apartment</i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href=""><i class="fa fa-calendar"></i>@ViewBag.ad3.Date</a>
+                                </li>
+                            </ul>
+                            <p class="card-text">@ViewBag.ad3.Description</p>
+                            <div class="product-ratings">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>

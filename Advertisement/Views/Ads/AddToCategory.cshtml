@@ -1,0 +1,16 @@
+﻿@model Advertisement.Models.AddToCategoryModel
+
+@{
+    ViewBag.Title = "AddToCategory";
+}
+
+<h2>Add Ad To Category @ViewBag.Category</h2>
+@using(Html.BeginForm("AddToCategory", "Ads"))
+{
+    <div class="form-group">
+        @Html.DropDownListFor(m=>m.AdId, new SelectList(Model.Ads, "Id", "Name"))
+    </div>
+    <button type="submit" class="btn btn-default">Save</button>
+    @Html.HiddenFor(m=>m.CategoryId)
+}
+

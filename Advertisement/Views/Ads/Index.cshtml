@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Advertisement.Models.Ad>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="dashboard section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 offset-md-1 col-lg-12 offset-lg-0">
+                <div class="widget dashboard-container my-adslist">
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                    <hr />
+                    <h3 class="widget-header">Advertisements</h3>
+
+                    <table id="adTable" class="table table-responsive product-dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.category)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                             
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ImgUrl)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Location)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="product-category" style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.category.CategoryName)
+                                    </td>
+                                    <td class="title" style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+
+                                    <td>
+                                        <img src="@item.ImgUrl" style="max-height:200px; max-width:200px; margin-right:15px;" />
+                                    </td>
+                                    <td style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td class="location" style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.Location)
+                                    </td>
+                                    <td style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td style="font-size:15px;">
+                                        @Html.DisplayFor(modelItem => item.Price)
+                                    </td>
+                                    <td class="action" data-title="Action">
+                                        <div class="">
+                                            <ul class="list-inline justify-content-center">
+                                                <li class="list-inline-item">
+                                                    <a data-toggle="tooltip" data-placement="top" title="See details" class="view" href="@Url.Action("Details", "Ads", new { id = item.Id })" >
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                @if (User.IsInRole("Editor") || User.IsInRole("Admin")){
+                                            <li class="list-inline-item">
+                                                <a class="edit" title="Edit Ad" href="@Url.Action("Edit", "Ads", new { id = item.Id })">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </li>
+                                                }
+                                                @if (User.IsInRole("Admin"))
+                                                {
+                                            <li class="list-inline-item">
+                                                <a class="delete js-delete" data-id="@item.Id">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </li>
+                                                }
+                                                
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <script>
+        var table = $("#adTable").DataTable();
+        $("#adTable .js-delete").click(function () {
+            var button = $(this);
+            bootbox.confirm("Are you sure you want to delete this advertisement?",
+                function (result) {
+                    if (result) {
+                        $.ajax({
+                            method: "GET",
+                            url: "/Ads/Delete/" + button.attr("data-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+        });
+    </script>
+}
+

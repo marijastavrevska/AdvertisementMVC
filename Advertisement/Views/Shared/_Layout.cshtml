@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Advertise</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <!-- PLUGINS CSS STYLE -->
+    <link href="~/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="~/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="~/plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="~/plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+    <!-- Fancy Box -->
+    <link href="~/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+    <link href="~/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="~/plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <!-- FAVICON -->
+    <link href="~/images/logo.png" rel="shortcut icon">
+
+</head>
+<body class="body-wrapper">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg  navigation">
+                        <a class="navbar-brand" href="/">
+                            <img src="~/images/logo.png" alt="logo" style="max-width: 100px; max-height: 100px; margin-top:-30px;">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto main-nav ">
+                                <li class="nav-item active">
+                                    @Html.ActionLink("Home", "Index", "Home",null, new { @class = "nav-link" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("All Advertisements", "Index", "Ads", null, new { @class = "nav-link" })
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ml-auto mt-10">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Register", "Register", "Account", null,  new { @class = "nav-link login-button" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Login", "Login", "Account", null,  new { @class = "nav-link login-button" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Add Listing", "Create", "Ads", null, new { @class = "nav-link add-button fa fa-plus-circle" })
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @RenderBody()
+ 
+    <!--============================
+    =            Footer            =
+    =============================-->
+
+    <footer class="footer section section-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0">
+                    <div class="block about">
+                        <img src="~/images/logo.png" style="max-width: 300px; max-height: 100px;">
+                        <p class="alt-color">
+                            Online platform that will help you find and buy or sell your property. Everything is well organized and the community is getting bigger everyday.
+                            Don't hesitate to join.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3">
+                    <div class="block">
+                        <h4>Buy or Sell</h4>
+                        <ul>
+                            <li>  @Html.ActionLink("All Advertisements", "Index", "Ads")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="footer-bottom">
+        <!-- Container Start -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-12">
+                    <div class="copyright">
+                        <p>Copyright © 2020. All Rights Reserved</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-12">
+                    <ul class="social-media-icons text-right">
+                        <li><a class="fa fa-facebook" href=""></a></li>
+                        <li><a class="fa fa-twitter" href=""></a></li>
+                        <li><a class="fa fa-pinterest-p" href=""></a></li>
+                        <li><a class="fa fa-vimeo" href=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="top-to">
+            <a id="top" class="" href="/"><i class="fa fa-angle-up"></i></a>
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- JAVASCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="~/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/plugins/tether/js/tether.min.js"></script>
+    <script src="~/plugins/raty/jquery.raty-fa.js"></script>
+    <script src="~/plugins/bootstrap/dist/js/popper.min.js"></script>
+    <script src="~/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/plugins/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="~/plugins/slick-carousel/slick/slick.min.js"></script>
+    <script src="~/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/plugins/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="~/plugins/smoothscroll/SmoothScroll.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+    <script src="~/js/scripts.js"></script>
+</body>
+</html>

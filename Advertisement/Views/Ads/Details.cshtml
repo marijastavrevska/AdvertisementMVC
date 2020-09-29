@@ -1,0 +1,86 @@
+﻿@model Advertisement.Models.Ad
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<section class="section bg-gray">
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <!-- Left sidebar -->
+            <div class="col-md-8">
+                <div class="product-details">
+                    <h1 class="product-title"> @Html.DisplayFor(model => model.Name)</h1>
+                    <div class="product-meta">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><i class="fa fa-user-o"></i> By <a href="">User</a></li>
+                            <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Category<a href="">@Html.DisplayFor(model=>model.category)</a></li>
+                            <li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location<a href="">@Html.DisplayFor(model=>model.Location)</a></li>
+                        </ul>
+                    </div>
+                    <div id="carouselExampleIndicators" class="product-slider carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                          
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100"  src="@Model.ImgUrl" alt="picture">
+                            </div>
+                            
+                        </div>
+                     
+                    </div>
+                    <div class="content">
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <h3 class="tab-title">@Html.DisplayNameFor(model=>model.Description)</h3>
+                                <p>@Html.DisplayFor(model=>model.Description)</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div class="widget price text-center">
+                        <h4>Price</h4>
+                        <p>$@Html.DisplayFor(model=>model.Price)</p>
+                    </div>
+                    <!-- User Profile widget -->
+                    <div class="widget user">
+                        <img class="rounded-circle" src="~/images/user/user-thumb.jpg" alt="">
+                        <ul class="list-inline mt-20">
+                            <li class="list-inline-item"><a href="" class="btn btn-contact">@User.Identity.Name</a></li>
+                            <li class="list-inline-item"><a href="" class="btn btn-offer">+38977145548</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget disclaimer">
+                        <h5 class="widget-header">Safety Tips</h5>
+                        <ul>
+                            <li>Meet seller at a public place</li>
+                            <li>Check the item before you buy</li>
+                            <li>Pay only after collecting the item</li>
+                            <li>Pay only after collecting the item</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <p>
+                @if (User.IsInRole("Editor") || User.IsInRole("Admin")) 
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+                }
+
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</section>
+
+
+

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Advertisement.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<section class="dashboard section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 offset-md-1 col-lg-12 offset-lg-0">
+                <div class="widget dashboard-container my-adslist"><p>
+    @Html.ActionLink("Create New", "Create")
+</p><hr />
+                    <h3 class="widget-header">Categories</h3>
+                    <table class="table table-responsive product-dashboard-table" id="category" style="width:800px; font-size:15px;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CategoryName)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryName)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                        @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                                        {
+                                            <a class="btn-link js-delete" data-id="@item.Id">Delete</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        var table = $("#category").DataTable();
+        $("#category .js-delete").click(function () {
+            var button = $(this);
+            bootbox.confirm("Are you sure you want to delete this category?",
+                function (result) {
+                    if (result) {
+                        $.ajax({
+                            method: "GET",
+                            url: "/Categories/Delete/" + button.attr("data-id"),
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+        });
+    </script>
+}

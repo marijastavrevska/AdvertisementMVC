@@ -1,0 +1,32 @@
+﻿@model Advertisement.Models.AddCategoryToAd
+
+@{
+    ViewBag.Title = "AddCategoryToAd";
+}
+
+
+
+<section class="user-profile section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+                <!-- Edit Personal Info -->
+                <div class="widget personal-info">
+                    <div class="form-horizontal">
+                        <h4>Choose category for your advertisement</h4>
+                        <hr />
+                        @using (Html.BeginForm("AddCategoryToAd", "Ads"))
+                        {
+                            <div class="form-group" style="padding-left:10px;">
+                                @Html.DropDownListFor(m => m.CategoryId, new SelectList(Model.Categories, "Id", "CategoryName"))
+                            </div>
+                            <button type="submit" class="btn btn-transparent">Save</button>
+                            @Html.HiddenFor(m => m.AdId)
+                        }
+                    </div>
+                </div>
+        </div>
+    </div>
+        </div>
+</section>
+
